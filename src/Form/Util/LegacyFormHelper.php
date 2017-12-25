@@ -74,6 +74,18 @@ final class LegacyFormHelper
      *
      * @return string
      */
+    public static function setType($shortType, $typeClass)
+    {
+        return self::$supportedTypes[$shortType] = $typeClass;
+    }
+    /**
+     * It returns the FQCN of the given short type name if not use legacy form
+     * and its a supported type, otherwise return the same type name
+     *
+     * @param string $shortType
+     *
+     * @return string
+     */
     public static function getType($shortType)
     {
         if (self::useLegacyFormComponent() || !isset(self::$supportedTypes[$shortType])) {
